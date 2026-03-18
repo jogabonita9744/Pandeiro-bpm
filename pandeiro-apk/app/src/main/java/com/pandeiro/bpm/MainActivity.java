@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int FFT_SIZE = 1024;
     private static final int HOP_SIZE = FFT_SIZE / 2;
     private static final int PEAK_WIN = 5;
-    private static final int MAX_INTERVALS = 4;
+    private static final int MAX_INTERVALS = 2;
 
     private AudioRecord audioRecord;
     private Thread recordingThread;
@@ -161,9 +161,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setLang(String l) {
         lang = l;
-        btnLangFr.setBackgroundResource("fr".equals(l) ? R.drawable.lang_btn_selected : R.drawable.lang_btn_unsel);
-        btnLangPt.setBackgroundResource("pt".equals(l) ? R.drawable.lang_btn_selected : R.drawable.lang_btn_unsel);
-        btnLangEn.setBackgroundResource("en".equals(l) ? R.drawable.lang_btn_selected : R.drawable.lang_btn_unsel);
+        btnLangFr.setBackgroundColor("fr".equals(l) ? 0xFF7aad6a : 0xFF1a3a12);
+        btnLangPt.setBackgroundColor("pt".equals(l) ? 0xFF7aad6a : 0xFF1a3a12);
+        btnLangEn.setBackgroundColor("en".equals(l) ? 0xFF7aad6a : 0xFF1a3a12);
         btnLangFr.setTextColor("fr".equals(l) ? 0xFF1a2e1a : 0xFF7aad6a);
         btnLangPt.setTextColor("pt".equals(l) ? 0xFF1a2e1a : 0xFF7aad6a);
         btnLangEn.setTextColor("en".equals(l) ? 0xFF1a2e1a : 0xFF7aad6a);
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         division = d;
         for (int i = 0; i < 6; i++) {
             boolean sel = (i + 1) == d;
-            divBtns[i].setBackgroundResource(sel ? R.drawable.lang_btn_selected : R.drawable.lang_btn_unsel);
+            divBtns[i].setBackgroundColor(sel ? 0xFF7aad6a : 0xFF1a3a12);
             divBtns[i].setTextColor(sel ? 0xFF1a2e1a : 0xFF7aad6a);
         }
         // Refresh displayed BPM if we have a raw value
@@ -383,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
         isRecording = false;
         if (audioRecord != null) { audioRecord.stop(); audioRecord.release(); audioRecord = null; }
         startStopBtn.setText(t(2));
-        startStopBtn.setBackgroundResource(R.drawable.btn_primary);
+        startStopBtn.setBackgroundColor(0xFF7aad6a);
         setStatus(t(6), false);
     }
 
