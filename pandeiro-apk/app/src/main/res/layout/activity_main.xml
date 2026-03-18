@@ -1,176 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_jungle">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingTop="36dp"
-        android:paddingBottom="36dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+    <!-- Background photo -->
+    <View android:id="@+id/rootBg"
+        android:layout_width="match_parent" android:layout_height="match_parent"/>
 
-        <!-- Language selector -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/pill_dark"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
-            android:layout_marginBottom="12dp">
+    <!-- Dark overlay -->
+    <View android:id="@+id/overlay"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="#9E071204"/>
 
-            <Button android:id="@+id/btnLangFr"
-                android:layout_width="wrap_content" android:layout_height="32dp"
-                android:text="FR" android:textSize="10sp" android:letterSpacing="0.1"
-                android:background="@drawable/lang_btn_selected" android:textColor="#1a2e1a"
-                android:paddingLeft="12dp" android:paddingRight="12dp"/>
-            <Button android:id="@+id/btnLangPt"
-                android:layout_width="wrap_content" android:layout_height="32dp"
-                android:text="PT" android:textSize="10sp" android:letterSpacing="0.1"
-                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"
-                android:paddingLeft="12dp" android:paddingRight="12dp"/>
-            <Button android:id="@+id/btnLangEn"
-                android:layout_width="wrap_content" android:layout_height="32dp"
-                android:text="EN" android:textSize="10sp" android:letterSpacing="0.1"
-                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"
-                android:paddingLeft="12dp" android:paddingRight="12dp"/>
-        </LinearLayout>
+    <!-- 3-dot menu button -->
+    <ImageButton android:id="@+id/menuBtn"
+        android:layout_width="48dp" android:layout_height="48dp"
+        android:layout_gravity="top|end" android:layout_margin="12dp"
+        android:src="@android:drawable/ic_menu_more"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:tint="#ffffff"/>
 
-        <!-- Title -->
-        <TextView android:id="@+id/titleText"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="PANDEIRO BPM" android:textColor="#4a7a3a"
-            android:textSize="11sp" android:letterSpacing="0.3"
-            android:layout_marginBottom="4dp"/>
+    <!-- Main scroll content -->
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center_horizontal"
+            android:paddingTop="48dp" android:paddingBottom="36dp"
+            android:paddingLeft="20dp" android:paddingRight="20dp">
 
-        <!-- Deco vine line -->
-        <View android:layout_width="80dp" android:layout_height="1dp"
-            android:background="#2d5c20" android:layout_marginBottom="18dp"/>
-
-        <!-- Pandeiro circle -->
-        <FrameLayout android:layout_width="220dp" android:layout_height="220dp"
-            android:layout_marginBottom="16dp">
-            <View android:id="@+id/pandeiroPulse"
-                android:layout_width="220dp" android:layout_height="220dp"
-                android:background="@drawable/pandeiro_bg"/>
-            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                android:orientation="vertical" android:gravity="center">
-                <TextView android:id="@+id/bpmText"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="--" android:textColor="#c8e6a0"
-                    android:textSize="72sp" android:fontFamily="sans-serif-condensed"
-                    android:textStyle="bold" android:letterSpacing="0.05"
-                    android:shadowColor="#1a3a0a" android:shadowDx="0" android:shadowDy="2" android:shadowRadius="8"/>
-                <TextView android:id="@+id/bpmLabel"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="BPM" android:textColor="#7aad6a"
-                    android:textSize="15sp" android:letterSpacing="0.3"/>
+            <!-- Lang selector -->
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:background="@drawable/pill_white"
+                android:paddingLeft="4dp" android:paddingRight="4dp"
+                android:paddingTop="3dp" android:paddingBottom="3dp"
+                android:layout_marginBottom="12dp">
+                <Button android:id="@+id/btnPt" android:layout_width="wrap_content" android:layout_height="34dp"
+                    android:text="🇧🇷 PT" android:textSize="11sp" android:background="@drawable/lang_btn_selected"
+                    android:textColor="#0d2208" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+                <Button android:id="@+id/btnFr" android:layout_width="wrap_content" android:layout_height="34dp"
+                    android:text="🇫🇷 FR" android:textSize="11sp" android:background="@drawable/lang_btn_unsel"
+                    android:textColor="#555555" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+                <Button android:id="@+id/btnEn" android:layout_width="wrap_content" android:layout_height="34dp"
+                    android:text="🇬🇧 EN" android:textSize="11sp" android:background="@drawable/lang_btn_unsel"
+                    android:textColor="#555555" android:paddingLeft="12dp" android:paddingRight="12dp"/>
             </LinearLayout>
-        </FrameLayout>
 
-        <!-- Tempo name -->
-        <TextView android:id="@+id/tempoText"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="" android:textColor="#a8d878"
-            android:textSize="11sp" android:letterSpacing="0.3"
-            android:layout_marginBottom="6dp"/>
+            <!-- Title -->
+            <TextView android:id="@+id/tvTitle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="PANDEIRO BPM" android:textColor="#4a9a2a"
+                android:textSize="11sp" android:letterSpacing="0.3" android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+            <View android:layout_width="70dp" android:layout_height="1dp"
+                android:background="#2d6b18" android:layout_marginBottom="14dp"/>
 
-        <!-- Raw BPM info -->
-        <TextView android:id="@+id/rawBpmText"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="" android:textColor="#4a7a3a"
-            android:textSize="10sp" android:letterSpacing="0.15"
-            android:layout_marginBottom="16dp"/>
+            <!-- Pandeiro circle -->
+            <FrameLayout android:layout_width="260dp" android:layout_height="260dp"
+                android:layout_marginBottom="14dp">
+                <View android:id="@+id/pandeiroPulse"
+                    android:layout_width="260dp" android:layout_height="260dp"
+                    android:background="@drawable/pandeiro_bg"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:gravity="center">
+                    <TextView android:id="@+id/tvBpmNum"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="--" android:textColor="#0d2208"
+                        android:textSize="80sp" android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed" android:letterSpacing="0.04"/>
+                    <TextView android:id="@+id/tvBpmLbl"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="BPM" android:textColor="#2d6b18"
+                        android:textSize="15sp" android:letterSpacing="0.3"/>
+                </LinearLayout>
+            </FrameLayout>
 
-        <!-- Division selector -->
-        <TextView android:id="@+id/labelDivision"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="DIVISION" android:textColor="#4a7a3a"
-            android:textSize="10sp" android:letterSpacing="0.3"
-            android:layout_marginBottom="8dp"/>
+            <!-- Tempo / raw -->
+            <TextView android:id="@+id/tvTempo"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="" android:textColor="#8fcc60"
+                android:textSize="12sp" android:letterSpacing="0.3" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvRaw"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="" android:textColor="#4a9a2a"
+                android:textSize="10sp" android:layout_marginBottom="16dp"/>
 
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/pill_dark"
-            android:paddingLeft="4dp" android:paddingRight="4dp"
-            android:paddingTop="3dp" android:paddingBottom="3dp"
-            android:layout_marginBottom="20dp">
+            <!-- Division label -->
+            <TextView android:id="@+id/tvDivLabel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="DIVISAO" android:textColor="#4a9a2a"
+                android:textSize="13sp" android:letterSpacing="0.2" android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
 
-            <Button android:id="@+id/div1"
-                android:layout_width="40dp" android:layout_height="36dp"
-                android:text="1" android:textSize="12sp"
-                android:background="@drawable/lang_btn_selected" android:textColor="#1a2e1a"/>
-            <Button android:id="@+id/div2"
-                android:layout_width="40dp" android:layout_height="36dp"
-                android:text="2" android:textSize="12sp"
-                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
-            <Button android:id="@+id/div3"
-                android:layout_width="40dp" android:layout_height="36dp"
-                android:text="3" android:textSize="12sp"
-                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
-            <Button android:id="@+id/div4"
-                android:layout_width="40dp" android:layout_height="36dp"
-                android:text="4" android:textSize="12sp"
-                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
-            <Button android:id="@+id/div5"
-                android:layout_width="40dp" android:layout_height="36dp"
-                android:text="5" android:textSize="12sp"
-                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
-            <Button android:id="@+id/div6"
-                android:layout_width="40dp" android:layout_height="36dp"
-                android:text="6" android:textSize="12sp"
-                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
+            <!-- Division buttons -->
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:background="@drawable/pill_dark"
+                android:paddingLeft="3dp" android:paddingRight="3dp"
+                android:paddingTop="3dp" android:paddingBottom="3dp"
+                android:layout_marginBottom="16dp">
+                <Button android:id="@+id/div1" android:layout_width="44dp" android:layout_height="38dp"
+                    android:text="1" android:textSize="15sp" android:textStyle="bold"
+                    android:background="@drawable/lang_btn_selected" android:textColor="#0d2208"/>
+                <Button android:id="@+id/div2" android:layout_width="44dp" android:layout_height="38dp"
+                    android:text="2" android:textSize="15sp" android:textStyle="bold"
+                    android:background="@drawable/lang_btn_unsel" android:textColor="#8fcc60"/>
+                <Button android:id="@+id/div3" android:layout_width="44dp" android:layout_height="38dp"
+                    android:text="3" android:textSize="15sp" android:textStyle="bold"
+                    android:background="@drawable/lang_btn_unsel" android:textColor="#8fcc60"/>
+                <Button android:id="@+id/div4" android:layout_width="44dp" android:layout_height="38dp"
+                    android:text="4" android:textSize="15sp" android:textStyle="bold"
+                    android:background="@drawable/lang_btn_unsel" android:textColor="#8fcc60"/>
+                <Button android:id="@+id/div5" android:layout_width="44dp" android:layout_height="38dp"
+                    android:text="5" android:textSize="15sp" android:textStyle="bold"
+                    android:background="@drawable/lang_btn_unsel" android:textColor="#8fcc60"/>
+                <Button android:id="@+id/div6" android:layout_width="44dp" android:layout_height="38dp"
+                    android:text="6" android:textSize="15sp" android:textStyle="bold"
+                    android:background="@drawable/lang_btn_unsel" android:textColor="#8fcc60"/>
+            </LinearLayout>
+
+            <!-- Sensitivity label -->
+            <TextView android:id="@+id/tvSensLabel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="SENSIBILIDADE" android:textColor="#4a9a2a"
+                android:textSize="13sp" android:letterSpacing="0.2" android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Sensitivity slider -->
+            <LinearLayout android:layout_width="260dp" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <SeekBar android:id="@+id/sensBar"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:progressTint="#4a9a2a" android:thumbTint="#8fcc60"/>
+                <TextView android:id="@+id/tvSensVal"
+                    android:layout_width="36dp" android:layout_height="wrap_content"
+                    android:text="3" android:textColor="#8fcc60"
+                    android:textSize="20sp" android:textStyle="bold"
+                    android:gravity="center" android:layout_marginLeft="8dp"/>
+            </LinearLayout>
+
+            <!-- Action buttons -->
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="14dp" android:gravity="center">
+                <Button android:id="@+id/startStopBtn"
+                    android:layout_width="140dp" android:layout_height="46dp"
+                    android:text="INICIAR" android:textColor="#0d2208"
+                    android:textSize="13sp" android:textStyle="bold" android:letterSpacing="0.1"
+                    android:background="@drawable/btn_primary" android:layout_marginRight="10dp"/>
+                <Button android:id="@+id/resetBtn"
+                    android:layout_width="140dp" android:layout_height="46dp"
+                    android:text="RESETAR" android:textColor="#8fcc60"
+                    android:textSize="13sp" android:letterSpacing="0.1"
+                    android:background="@drawable/btn_ghost"/>
+            </LinearLayout>
+
+            <!-- Status -->
+            <TextView android:id="@+id/tvStatus"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Aguardando" android:textColor="#4a9a2a"
+                android:textSize="11sp" android:letterSpacing="0.2"/>
+
         </LinearLayout>
-
-        <!-- Start/Stop -->
-        <Button android:id="@+id/startStopBtn"
-            android:layout_width="200dp" android:layout_height="56dp"
-            android:text="DÉMARRER" android:textColor="#0d1f0d"
-            android:textSize="15sp" android:letterSpacing="0.15" android:textStyle="bold"
-            android:background="@drawable/btn_primary"
-            android:layout_marginBottom="10dp"/>
-
-        <!-- Reset -->
-        <Button android:id="@+id/resetBtn"
-            android:layout_width="200dp" android:layout_height="44dp"
-            android:text="RESET" android:textColor="#7aad6a"
-            android:textSize="12sp" android:letterSpacing="0.15"
-            android:background="@drawable/btn_ghost"
-            android:layout_marginBottom="24dp"/>
-
-        <!-- Sensitivity -->
-        <TextView android:id="@+id/labelSens"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="SENSIBILITÉ" android:textColor="#4a7a3a"
-            android:textSize="10sp" android:letterSpacing="0.3"
-            android:layout_marginBottom="8dp"/>
-
-        <LinearLayout android:layout_width="240dp" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:gravity="center_vertical"
-            android:layout_marginBottom="28dp">
-            <SeekBar android:id="@+id/sensBar"
-                android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:progressTint="#7aad6a" android:thumbTint="#c8e6a0"/>
-            <TextView android:id="@+id/sensVal"
-                android:layout_width="32dp" android:layout_height="wrap_content"
-                android:text="3" android:textColor="#c8e6a0"
-                android:textSize="18sp" android:textStyle="bold"
-                android:gravity="center" android:layout_marginLeft="8dp"/>
-        </LinearLayout>
-
-        <!-- Status -->
-        <TextView android:id="@+id/statusText"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="En attente" android:textColor="#4a7a3a"
-            android:textSize="11sp" android:letterSpacing="0.2"/>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</FrameLayout>
