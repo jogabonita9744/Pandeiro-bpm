@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg">#0E0A04</color>
-    <color name="gold">#F0B429</color>
-    <color name="skin">#C8874A</color>
-    <color name="red">#D63B2F</color>
+    <color name="bg_dark">#0d1f0d</color>
+    <color name="pal_main">#4a9a2a</color>
+    <color name="pal_light">#8fcc60</color>
+    <color name="pal_mid">#2d6b18</color>
+    <color name="pal_dark">#122e0a</color>
+    <color name="white">#f8f8f4</color>
 </resources>
