@@ -2,159 +2,175 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0E0A04">
+    android:background="@drawable/bg_jungle">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:paddingTop="40dp"
-        android:paddingBottom="40dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingTop="36dp"
+        android:paddingBottom="36dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
-        <!-- Title -->
-        <TextView
+        <!-- Language selector -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PANDEIRO BPM"
-            android:textColor="#7A4E22"
-            android:textSize="11sp"
-            android:letterSpacing="0.3"
+            android:orientation="horizontal"
+            android:background="@drawable/pill_dark"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_marginBottom="12dp">
+
+            <Button android:id="@+id/btnLangFr"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:text="FR" android:textSize="10sp" android:letterSpacing="0.1"
+                android:background="@drawable/lang_btn_selected" android:textColor="#1a2e1a"
+                android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            <Button android:id="@+id/btnLangPt"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:text="PT" android:textSize="10sp" android:letterSpacing="0.1"
+                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"
+                android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            <Button android:id="@+id/btnLangEn"
+                android:layout_width="wrap_content" android:layout_height="32dp"
+                android:text="EN" android:textSize="10sp" android:letterSpacing="0.1"
+                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"
+                android:paddingLeft="12dp" android:paddingRight="12dp"/>
+        </LinearLayout>
+
+        <!-- Title -->
+        <TextView android:id="@+id/titleText"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="PANDEIRO BPM" android:textColor="#4a7a3a"
+            android:textSize="11sp" android:letterSpacing="0.3"
             android:layout_marginBottom="4dp"/>
 
-        <!-- Deco line -->
-        <View
-            android:layout_width="60dp"
-            android:layout_height="1dp"
-            android:background="#7A4E22"
-            android:layout_marginBottom="24dp"/>
+        <!-- Deco vine line -->
+        <View android:layout_width="80dp" android:layout_height="1dp"
+            android:background="#2d5c20" android:layout_marginBottom="18dp"/>
 
         <!-- Pandeiro circle -->
-        <FrameLayout
-            android:layout_width="220dp"
-            android:layout_height="220dp"
-            android:layout_marginBottom="20dp">
-
-            <!-- Outer rim -->
-            <View
-                android:id="@+id/pandeiroPulse"
-                android:layout_width="220dp"
-                android:layout_height="220dp"
+        <FrameLayout android:layout_width="220dp" android:layout_height="220dp"
+            android:layout_marginBottom="16dp">
+            <View android:id="@+id/pandeiroPulse"
+                android:layout_width="220dp" android:layout_height="220dp"
                 android:background="@drawable/pandeiro_bg"/>
-
-            <!-- BPM inside circle -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/bpmText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="--"
-                    android:textColor="#F0B429"
-                    android:textSize="72sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.05"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="BPM"
-                    android:textColor="#C8874A"
-                    android:textSize="16sp"
-                    android:letterSpacing="0.3"/>
-
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                android:orientation="vertical" android:gravity="center">
+                <TextView android:id="@+id/bpmText"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="--" android:textColor="#c8e6a0"
+                    android:textSize="72sp" android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold" android:letterSpacing="0.05"
+                    android:shadowColor="#1a3a0a" android:shadowDx="0" android:shadowDy="2" android:shadowRadius="8"/>
+                <TextView android:id="@+id/bpmLabel"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="BPM" android:textColor="#7aad6a"
+                    android:textSize="15sp" android:letterSpacing="0.3"/>
             </LinearLayout>
         </FrameLayout>
 
         <!-- Tempo name -->
-        <TextView
-            android:id="@+id/tempoText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#D63B2F"
-            android:textSize="11sp"
-            android:letterSpacing="0.3"
-            android:layout_marginBottom="32dp"/>
+        <TextView android:id="@+id/tempoText"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="" android:textColor="#a8d878"
+            android:textSize="11sp" android:letterSpacing="0.3"
+            android:layout_marginBottom="6dp"/>
 
-        <!-- Start/Stop button -->
-        <Button
-            android:id="@+id/startStopBtn"
-            android:layout_width="200dp"
-            android:layout_height="56dp"
-            android:text="DÉMARRER"
-            android:textColor="#0E0A04"
-            android:textSize="16sp"
-            android:letterSpacing="0.2"
-            android:textStyle="bold"
-            android:background="#F0B429"
-            android:layout_marginBottom="12dp"/>
+        <!-- Raw BPM info -->
+        <TextView android:id="@+id/rawBpmText"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="" android:textColor="#4a7a3a"
+            android:textSize="10sp" android:letterSpacing="0.15"
+            android:layout_marginBottom="16dp"/>
 
-        <!-- Reset button -->
-        <Button
-            android:id="@+id/resetBtn"
-            android:layout_width="200dp"
-            android:layout_height="44dp"
-            android:text="RESET"
-            android:textColor="#C8874A"
-            android:textSize="13sp"
-            android:letterSpacing="0.2"
-            android:background="#1A1208"
-            android:layout_marginBottom="28dp"/>
-
-        <!-- Sensitivity -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SENSIBILITÉ"
-            android:textColor="#7A4E22"
-            android:textSize="10sp"
-            android:letterSpacing="0.3"
+        <!-- Division selector -->
+        <TextView android:id="@+id/labelDivision"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="DIVISION" android:textColor="#4a7a3a"
+            android:textSize="10sp" android:letterSpacing="0.3"
             android:layout_marginBottom="8dp"/>
 
-        <LinearLayout
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="32dp">
+            android:background="@drawable/pill_dark"
+            android:paddingLeft="4dp" android:paddingRight="4dp"
+            android:paddingTop="3dp" android:paddingBottom="3dp"
+            android:layout_marginBottom="20dp">
 
-            <SeekBar
-                android:id="@+id/sensBar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <Button android:id="@+id/div1"
+                android:layout_width="40dp" android:layout_height="36dp"
+                android:text="1" android:textSize="12sp"
+                android:background="@drawable/lang_btn_selected" android:textColor="#1a2e1a"/>
+            <Button android:id="@+id/div2"
+                android:layout_width="40dp" android:layout_height="36dp"
+                android:text="2" android:textSize="12sp"
+                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
+            <Button android:id="@+id/div3"
+                android:layout_width="40dp" android:layout_height="36dp"
+                android:text="3" android:textSize="12sp"
+                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
+            <Button android:id="@+id/div4"
+                android:layout_width="40dp" android:layout_height="36dp"
+                android:text="4" android:textSize="12sp"
+                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
+            <Button android:id="@+id/div5"
+                android:layout_width="40dp" android:layout_height="36dp"
+                android:text="5" android:textSize="12sp"
+                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
+            <Button android:id="@+id/div6"
+                android:layout_width="40dp" android:layout_height="36dp"
+                android:text="6" android:textSize="12sp"
+                android:background="@drawable/lang_btn_unsel" android:textColor="#7aad6a"/>
+        </LinearLayout>
+
+        <!-- Start/Stop -->
+        <Button android:id="@+id/startStopBtn"
+            android:layout_width="200dp" android:layout_height="56dp"
+            android:text="DÉMARRER" android:textColor="#0d1f0d"
+            android:textSize="15sp" android:letterSpacing="0.15" android:textStyle="bold"
+            android:background="@drawable/btn_primary"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Reset -->
+        <Button android:id="@+id/resetBtn"
+            android:layout_width="200dp" android:layout_height="44dp"
+            android:text="RESET" android:textColor="#7aad6a"
+            android:textSize="12sp" android:letterSpacing="0.15"
+            android:background="@drawable/btn_ghost"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Sensitivity -->
+        <TextView android:id="@+id/labelSens"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SENSIBILITÉ" android:textColor="#4a7a3a"
+            android:textSize="10sp" android:letterSpacing="0.3"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout android:layout_width="240dp" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="28dp">
+            <SeekBar android:id="@+id/sensBar"
+                android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:progressTint="#F0B429"
-                android:thumbTint="#F0B429"/>
-
-            <TextView
-                android:id="@+id/sensVal"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:textColor="#F0B429"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginLeft="8dp"/>
+                android:progressTint="#7aad6a" android:thumbTint="#c8e6a0"/>
+            <TextView android:id="@+id/sensVal"
+                android:layout_width="32dp" android:layout_height="wrap_content"
+                android:text="3" android:textColor="#c8e6a0"
+                android:textSize="18sp" android:textStyle="bold"
+                android:gravity="center" android:layout_marginLeft="8dp"/>
         </LinearLayout>
 
         <!-- Status -->
-        <TextView
-            android:id="@+id/statusText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="En attente"
-            android:textColor="#7A4E22"
-            android:textSize="11sp"
-            android:letterSpacing="0.2"/>
+        <TextView android:id="@+id/statusText"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="En attente" android:textColor="#4a7a3a"
+            android:textSize="11sp" android:letterSpacing="0.2"/>
 
     </LinearLayout>
 </ScrollView>
